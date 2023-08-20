@@ -10,7 +10,7 @@ app_name_env_var = 'APP_NAME'
 rest_server_env_var = 'REST_SERVER'
 
 appname = os.environ.get(app_name_env_var, default='golem-workload')
-rest_server = os.environ.get(rest_server_env_var, default='spotos-rest-logger-service.golem.svc.cluster.local:3000/logger')
+rest_server = os.environ.get(rest_server_env_var, default='http://spotos-rest-logger-service.golem.svc.cluster.local:3000/logger')
 
 
 def check_env_vars():
