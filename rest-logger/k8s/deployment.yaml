@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spotos-rest-logger
+  namespace: golem
+  labels:
+    app: spotos-rest-logger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spotos-rest-logger
+  template:
+    metadata:
+      labels:
+        app: spotos-rest-logger
+    spec:
+      containers:
+        - name: spotos-rest-logger
+          image: quay.io/maroonayoub/spotos-rest-logger:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000

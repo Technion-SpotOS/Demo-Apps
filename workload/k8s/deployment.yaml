@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spotos-workload
+  namespace: golem
+  labels:
+    app: spotos-workload
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spotos-workload
+  template:
+    metadata:
+      labels:
+        app: spotos-workload
+    spec:
+      containers:
+        - name: spotos-workload
+          image: quay.io/maroonayoub/spotos-workload:latest
+          imagePullPolicy: Always
+          env:
+            - name: APP_NAME
+              value: $APP_NAME
+            - name: REST_SERVER
+              value: $REST_SERVER
